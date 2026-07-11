@@ -1,19 +1,21 @@
 # ai-skills-hub
 
-100 focused SKILL.md workflows for AI coding agents.
+542 cross-platform SKILL.md workflows for AI coding agents.
 
-This repository ships a lean default set for Cursor, Codex, Claude Code, Gemini
-CLI, Windsurf, and other AI developer platforms. The skills focus on code
-review, debugging, testing, frontend, backend, DevOps, security, documentation,
-Git/GitHub, MCP, and agent workflow tasks.
+A unified skills repository that aggregates skills from Cursor (built-in + 30
+plugins), Aside, Claude Code agents, and hand-curated coding workflows. Every
+skill is portable across Cursor, Claude Code, Codex, Gemini CLI, Windsurf, and
+other AI developer platforms.
 
-The previous full corpus is preserved at:
+## Skill Sources
 
-- Branch: `archive/full-corpus-fa85915`
-- Tag: `full-corpus-fa85915`
-
-The default branch is intentionally small. Normal installs should receive exactly
-100 skills.
+| Source | Count | Description |
+| --- | --- | --- |
+| Cursor built-in | 20 | SDK, canvas, hooks, statusline, review, shell, onboard |
+| Cursor plugins | 316 | 30 plugins — Cloudflare, Figma, Firebase, PostHog, Sentry, Stripe, Resend, Convex, MongoDB, and more |
+| Aside built-in | 45 | Browser automation, document processing (DOCX/XLSX/PDF/PPTX), Google suite, Slack, Notion, tax forms |
+| Claude agents | 60 | Code review, TDD, security, architecture, build resolvers, performance, accessibility |
+| Curated skills | 101 | Code review, debugging, testing, frontend, backend, DevOps, security, documentation, MCP |
 
 ## Install
 
@@ -39,94 +41,133 @@ npx skills add KunanonJ/ai-skills-hub -g -a codex -s '*' --copy -y
 
 ```bash
 git clone --depth 1 https://github.com/KunanonJ/ai-skills-hub.git /tmp/ai-skills-hub
-rsync -a /tmp/ai-skills-hub/skills/ ~/.codex/skills/
+rsync -a /tmp/ai-skills-hub/skills/ ~/.claude/skills/
 ```
 
-Use the target skill directory for your agent, such as `~/.claude/skills/` or
-`~/.codex/skills/`.
+Use the target skill directory for your agent, such as `~/.claude/skills/`,
+`~/.codex/skills/`, or `~/.cursor/skills/`.
+
+### Selective Install
+
+Install a specific category:
+
+```bash
+# Cursor plugins only
+rsync -a /tmp/ai-skills-hub/skills/cursor-plugin-*/ ~/.claude/skills/
+
+# Claude agents only
+rsync -a /tmp/ai-skills-hub/skills/agent-*/ ~/.claude/skills/
+
+# Aside skills only
+rsync -a /tmp/ai-skills-hub/skills/aside-*/ ~/.claude/skills/
+```
 
 ## What Is Included
 
-The retained skills are selected for coding-agent usefulness:
+### Cursor Built-in Skills
+
+Canvas, SDK (TypeScript + Python), shell integration, statusline configuration,
+hook creation, rule and skill authoring, code review (standard + Bugbot +
+security), subagent creation, PR splitting, CLI config management.
+
+### Cursor Plugin Skills (30 plugins)
+
+| Plugin | Skills | Highlights |
+| --- | --- | --- |
+| Cloudflare | 19 | Workers, Durable Objects, Agents SDK, Wrangler, email service |
+| PostHog | 73 | Analytics, experiments, feature flags, session replay |
+| Sentry | 31 | Error tracking, alerts, PR review, SDK guides |
+| pstack | 36 | Full-stack development toolkit |
+| Figma | 11 | Design context, code connect, motion, slides |
+| Firebase | 11 | Auth, Firestore, hosting, AI logic |
+| Convex | 7 | Real-time backend, schema, functions |
+| MongoDB | 8 | Queries, aggregation, schema design |
+| Superpowers | 14 | Agent orchestration, workflow automation |
+| Tavily | 6 | Search, crawl, extract, research |
+| Resend | 5 | Email sending, React Email, CLI |
+| Stripe | 4 | Payments, billing, Connect |
+| Cursor Team Kit | 18 | Team collaboration, shared workflows |
+| Others | 73 | Canva, Context7, Shadcn, Railway, Postman, Ponytail, and more |
+
+### Aside Skills
+
+Browser automation (Chrome, visual browse, CAPTCHA solving), document processing
+(DOCX, XLSX, PDF, PPTX with scripts), Google suite (Docs, Gmail, Sheets, Search,
+Accounts), password managers (1Password, Bitwarden, LastPass, Dashlane, Apple
+Passwords), Slack, Notion, YouTube, X/Twitter, image search, and 16 site-specific
+skills (GitHub, Jira, Linear, Confluence, Airtable, and more).
+
+### Claude Code Agents
+
+60 specialized agents covering code review, TDD, security review, architecture,
+build error resolution (TypeScript, Go, Rust, Python, Java, Kotlin, Swift, C++,
+Dart/Flutter, Django, PyTorch), performance optimization, accessibility, database
+review, documentation, and multi-language code reviewers.
+
+### Curated Coding Skills
 
 | Area | Examples |
 | --- | --- |
 | Review and debugging | `code-review`, `bug-hunter`, `systematic-debugging` |
 | Testing | `test-driven-development`, `playwright`, `property-based-testing` |
 | Code quality | `clean-code`, `refactoring-patterns`, `codebase-cleanup-tech-debt` |
-| Documentation and architecture | `documentation`, `architecture-patterns`, `api-design-principles` |
-| Frontend | `typescript-expert`, `react-patterns`, `nextjs-best-practices`, `frontend-a11y` |
-| Backend | `backend-api-design`, `python-best-practices`, `fastapi-pro`, `golang-patterns` |
-| Data and infrastructure | `postgresql`, `docker-patterns`, `kubernetes-patterns`, `terraform-specialist` |
+| Documentation | `documentation`, `architecture-patterns`, `api-design-principles` |
+| Frontend | `typescript-expert`, `react-patterns`, `nextjs-best-practices` |
+| Backend | `backend-api-design`, `python-best-practices`, `fastapi-pro` |
+| Infrastructure | `postgresql`, `docker-patterns`, `kubernetes-patterns` |
 | Delivery | `github-actions-advanced`, `ci-cd-patterns`, `deployment-patterns` |
-| Security | `security-review`, `secrets-management`, `dependency-check`, `codeql` |
-| Git, MCP, and agent workflow | `git-pr-review`, `git-worktree`, `mcp-server-patterns`, `openai-docs` |
+| Security | `security-review`, `secrets-management`, `dependency-check` |
+| MCP and agents | `mcp-server-patterns`, `git-worktree`, `openai-docs` |
 
 Browse the complete set in [`skills/`](./skills/) or
 [`skills-manifest.txt`](./skills-manifest.txt).
 
+## Skill Format
+
+Every skill follows the same structure:
+
+```
+skills/<name>/
+  SKILL.md          # Main skill document with YAML frontmatter
+  hooks.json        # Optional: lifecycle hooks
+  scripts/          # Optional: supporting scripts
+  sdk/              # Optional: type definitions or SDK files
+```
+
+Frontmatter format:
+
+```yaml
+---
+name: skill-name
+description: >-
+  One-line description of what the skill does and when to use it.
+metadata:
+  version: "0.1.0"
+---
+```
+
 ## Validation
 
-Run the lean-corpus contract check before merging:
-
-```bash
-python -m app.skill_quality validate-lean
-```
-
-It verifies:
-
-- `skills-manifest.txt` contains exactly 100 sorted entries.
-- Every manifest entry resolves to `skills/<name>/SKILL.md`.
-- No extra top-level directories exist under `skills/`.
-- `skills-source-map.tsv` contains exactly 100 data rows matching the manifest.
-- No broken symlinks remain under `skills/`.
-
-Metadata can be checked separately:
+Check that all skills have valid frontmatter:
 
 ```bash
 python -m app.skill_quality normalize-metadata --check
 ```
 
-Missing `name` or `description` frontmatter fails the check. Weak descriptions
-are reported as warnings so the first prune can remain focused.
+## Archive
 
-Full test commands:
+The previous full corpus (4,874 skills) and the original 100-skill lean set are
+preserved:
 
-```bash
-uv run --with pytest --with packaging pytest -q
-uv run --with ruff ruff check .
-python -m app.skill_quality validate-lean
-python -m app.skill_quality normalize-metadata --check
-```
-
-## Source Map
-
-[`skills-source-map.tsv`](./skills-source-map.tsv) keeps each retained skill
-traceable to the upstream source and relative path it came from. The source map is
-part of the 100-skill contract and must be regenerated or edited whenever the
-manifest changes.
-
-## Full Corpus Archive
-
-The old multi-thousand-skill corpus is not part of the default install path.
-Recover it only through the archive branch or tag:
+- Full corpus: branch `archive/full-corpus-fa85915`, tag `full-corpus-fa85915`
+- Release history: v4.0.0 through v4.4.0
 
 ```bash
-git fetch origin archive/full-corpus-fa85915 full-corpus-fa85915
+git fetch origin archive/full-corpus-fa85915
 git checkout archive/full-corpus-fa85915
 ```
 
-Do not add full-corpus bootstrap commands or one-line shell setup scripts back to
-the default README path. They belong in archive-specific documentation only.
-
 ## Contributing
 
-The main branch is capped at exactly 100 skills. Add or replace a skill only when
-it improves the coding-agent set enough to remove another skill.
-
-Before opening a PR:
-
-- Keep `skills-manifest.txt` sorted and exactly 100 lines.
-- Keep `skills-source-map.tsv` aligned with the manifest.
-- Ensure each retained skill has `SKILL.md` with `name` and `description`.
-- Run the validation and test commands above.
+PRs welcome. Each skill needs a `SKILL.md` with valid `name` and `description`
+frontmatter. Use `metadata.version: "0.1.0"` for new skills.
