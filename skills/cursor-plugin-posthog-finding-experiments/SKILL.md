@@ -1,11 +1,10 @@
 ---
 name: cursor-plugin-posthog-finding-experiments
 description: >-
-  Resolves a PostHog experiment reference from natural language to a concrete experiment ID by browsing `experiment-list` (not feature-flag tools), with disambiguation when multiple experiments match. Use when the user names or quotes an experiment (\"split test demo\", \"the File engagement boost experiment\", \"onboarding retention test\", \"landing page hero experiment\", \"pricing experiment\"),
+  Resolves a PostHog experiment reference from natural language to a concrete experiment ID by browsing `experiment-list` (not feature-flag tools), with disambiguation when multiple experiments match. Use when the user names or quotes an experiment ("split test demo", "the File engagement boost experiment", "onboarding retention test", "landing page hero experiment", "pricing experiment"), describes it loosely ("the signup experiment", "my pricing test", "the one with the new checkout"), uses a relative reference ("latest", "most recent", "the one I created yesterday"), filters by status (running, draft, stopped, archived), or otherwise refers to an experiment by anything other than its concrete ID.
 metadata:
   version: "0.1.0"
 ---
-
 # Finding experiments
 
 Users refer to experiments by name, description, or relative references — not by ID.
