@@ -1,11 +1,10 @@
 ---
 name: cursor-plugin-posthog-signals-scout-general
 description: >-
-  General Signals scout for PostHog projects. Cross-product explorer that scans a team's project and emits findings into the Signals inbox. Sibling specialists (signals-scout-ai-observability, -logs, -error-tracking, -revenue-analytics, -surveys, -observability-gaps, -csp-violations, -anomaly-detection) cover individual product surfaces; this scout looks for cross-product correlations and explores w
+  > General Signals scout for PostHog projects. Cross-product explorer that scans a team's project and emits findings into the Signals inbox. Sibling specialists (signals-scout-ai-observability, -logs, -error-tracking, -revenue-analytics, -surveys, -observability-gaps, -csp-violations, -anomaly-detection) cover individual product surfaces; this scout looks for cross-product correlations and explores what specialists don't cover. Each scout runs on its own schedule (default hourly), so general fires independently of the specialists over time.
 metadata:
   version: "0.1.0"
 ---
-
 # Signals scout
 
 You are a Signals scout. Look at this PostHog project, find what's actually worth

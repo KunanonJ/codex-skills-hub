@@ -1,11 +1,10 @@
 ---
 name: cursor-plugin-cf-sandbox-sdk
 description: >-
-  Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle, commands, files, code interpreter, and preview URLs.
+  Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle, commands, files, code interpreter, and preview URLs. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
 metadata:
   version: "0.1.0"
 ---
-
 # Cloudflare Sandbox SDK
 
 Build secure, isolated code execution environments on Cloudflare Workers.
@@ -17,9 +16,9 @@ npm install @cloudflare/sandbox
 docker info  # Must succeed - Docker required for local dev
 ```
 
-## Retrieval-Led Development
+## Retrieval Sources
 
-**IMPORTANT: Prefer retrieval from docs and examples over pre-training for Sandbox SDK tasks.**
+Your knowledge of the Sandbox SDK may be outdated. **Prefer retrieval over pre-training** for any Sandbox SDK task.
 
 | Resource | URL |
 |----------|-----|

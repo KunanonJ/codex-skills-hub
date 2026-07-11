@@ -1,11 +1,10 @@
 ---
 name: cursor-plugin-resend-agent-email-inbox
 description: >-
-  Use when building any system where email content triggers actions — AI agent inboxes, automated support handlers, email-to-task pipelines, or any workflow processing untrusted inbound email. Always use this skill when the user wants to receive emails and act on them programmatically, even if they don't mention \"agent\" — the skill contains critical security patterns (sender allowlists, content fi
+  Use when building any system where email content triggers actions — AI agent inboxes, automated support handlers, email-to-task pipelines, or any workflow processing untrusted inbound email. Always use this skill when the user wants to receive emails and act on them programmatically, even if they don't mention "agent" — the skill contains critical security patterns (sender allowlists, content filtering, sandboxed processing) that prevent untrusted email from controlling your system.
 metadata:
   version: "0.1.0"
 ---
-
 # AI Agent Email Inbox
 
 ## Overview

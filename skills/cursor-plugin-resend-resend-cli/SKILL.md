@@ -1,11 +1,10 @@
 ---
 name: cursor-plugin-resend-resend-cli
 description: >-
-  Operate the Resend platform from the terminal — send emails (including React Email .tsx templates via --react-email), manage domains, contacts, broadcasts, templates, webhooks, API keys, logs, automations, and events via the `resend` CLI. Use when the user wants to run Resend commands in the shell, scripts, or CI/CD pipelines, or send/preview React Email templates. Always load this skill before ru
+  > Operate the Resend platform from the terminal — send emails (including React Email .tsx templates via --react-email), manage domains, contacts, broadcasts, templates, webhooks, API keys, logs, automations, and events via the `resend` CLI. Use when the user wants to run Resend commands in the shell, scripts, or CI/CD pipelines, or send/preview React Email templates. Always load this skill before running `resend` commands — it contains the non-interactive flag contract and gotchas that prevent silent failures.
 metadata:
   version: "0.1.0"
 ---
-
 # Resend CLI
 
 ## Installation
